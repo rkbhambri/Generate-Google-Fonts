@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Property = (props) => {
+const FontFamily = (props) => {
     let property = null;
     let option = null;
     if (props.category === 'All') {
@@ -8,7 +8,6 @@ const Property = (props) => {
             return <option value={item.family} key={index}>{item.family}</option>
         });
     } else {
-        console.log('=========p======', props.data, '------', props.category)
 
         property = props.data.filter(item => item.category.toLowerCase() === props.category.toLowerCase());
         option = property.map((item, index) => {
@@ -22,8 +21,7 @@ const Property = (props) => {
                     className="form-control"
                     id="selectProperty"
                     defaultValue=""
-                    onChange={(event) => props.sortByPrice(event)}
-                    disabled={props.isCategoryDisable}>
+                    onChange={(event) => props.sortByPrice(event)}>
                     <option value="" disabled>{props.label}</option>
                     {option}
                 </select>
@@ -32,4 +30,4 @@ const Property = (props) => {
     );
 };
 
-export default Property;
+export default FontFamily;

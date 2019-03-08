@@ -1,12 +1,13 @@
 import React from 'react';
-import Property from './Property/Property';
+import FontFamily from './FontFamily/FontFamily';
+import FontVariant from './FontVariant/FontVariant';
 
 const FontProperty = (props) => {
     return (
         <div className="font-property">
             <p className="mt-1">PROPERTY</p>
-            <Property label="Select Font Family" data={props.data} category={props.category} />
-            <Property label="Select Font Variant" isCategoryDisable={props.isCategoryDisable} data={props.data} category={props.category} />
+            <FontFamily label="Select Font Family" data={props.data} category={props.category} />
+            <FontVariant label="Select Font Variant" isCategoryDisable={props.isCategoryDisable} data={props.data} category={props.category} />
         </div>
     );
 };

@@ -9,7 +9,9 @@ class Layout extends Component {
     state = {
         data: [],
         isCategoryDisable: true,
-        category: 'All'
+        category: 'All',
+        fontSize: '20px',
+        fontColor: '#000'
     };
 
     componentDidMount() {
@@ -46,16 +48,34 @@ class Layout extends Component {
             category
         });
     };
+
+    changeFontSize = (event) => {
+        this.setState({
+            ...this.state,
+            fontSize: event.target.value + 'px'
+        });
+    };
+
+    changeColor = (event) => {
+        this.setState({
+            ...this.state,
+            fontColor: event.target.value
+        })
+    }
+
     render() {
         return (
-            <div className="layout col-md-10 offset-1 border">
+            <div className="layout col-md-10 offset-1">
                 <div className="row">
-                    <TextArea />
+                    <TextArea fontSize={this.state.fontSize} fontColor={this.state.fontColor} />
                     <FontSelection
                         selectCategory={(category) => this.selectCategory(category)}
                         isCategoryDisable={this.state.isCategoryDisable}
                         data={this.state.data}
-                        category={this.state.category} />
+                        category={this.state.category}
+                        changeFontSize={(event) => this.changeFontSize(event)}
+                        changeColor={(event) => this.changeColor(event)}
+                    />
                 </div>
             </div>
         );

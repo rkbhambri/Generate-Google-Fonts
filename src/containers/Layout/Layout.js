@@ -11,7 +11,8 @@ class Layout extends Component {
         isCategoryDisable: true,
         category: 'All',
         fontSize: '20px',
-        fontColor: '#000'
+        fontColor: '#000',
+        fontFamily: 'sans-serif'
     };
 
     componentDidMount() {
@@ -60,14 +61,24 @@ class Layout extends Component {
         this.setState({
             ...this.state,
             fontColor: event.target.value
-        })
-    }
+        });
+    };
+
+    changeFontFamily = (event) => {
+        this.setState({
+            ...this.state,
+            fontFamily: event.target.value + ', sans-serif'
+        });
+    };
 
     render() {
         return (
-            <div className="layout col-md-10 offset-1">
-                <div className="row">
-                    <TextArea fontSize={this.state.fontSize} fontColor={this.state.fontColor} />
+            <div className="layout col-md-10 offset-1 mt-4">
+                <div className="layout-wrapper row">
+                    <TextArea
+                        fontFamily={this.state.fontFamily}
+                        fontSize={this.state.fontSize}
+                        fontColor={this.state.fontColor} />
                     <FontSelection
                         selectCategory={(category) => this.selectCategory(category)}
                         isCategoryDisable={this.state.isCategoryDisable}
@@ -75,6 +86,7 @@ class Layout extends Component {
                         category={this.state.category}
                         changeFontSize={(event) => this.changeFontSize(event)}
                         changeColor={(event) => this.changeColor(event)}
+                        changeFontFamily={(event) => this.changeFontFamily(event)}
                     />
                 </div>
             </div>

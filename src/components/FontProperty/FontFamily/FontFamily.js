@@ -21,7 +21,7 @@ const FontFamily = (props) => {
                     className="form-control"
                     id="selectProperty"
                     defaultValue=""
-                    onChange={(event) => props.sortByPrice(event)}>
+                    onChange={(event) => props.changeFontFamily(event)}>
                     <option value="" disabled>{props.label}</option>
                     {option}
                 </select>

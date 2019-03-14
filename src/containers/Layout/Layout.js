@@ -12,7 +12,7 @@ class Layout extends Component {
         category: 'All',
         fontSize: '20px',
         fontColor: '#000',
-        fontFamily: 'sans-serif'
+        fontFamily: ''
     };
 
     componentDidMount() {
@@ -67,7 +67,7 @@ class Layout extends Component {
     changeFontFamily = (event) => {
         this.setState({
             ...this.state,
-            fontFamily: event.target.value + ', sans-serif'
+            fontFamily: event.target.value
         });
     };
 

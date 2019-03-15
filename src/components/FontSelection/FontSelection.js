@@ -10,8 +10,11 @@ const FontSelection = (props) => {
             <FontClassification selectCategory={(category) => props.selectCategory(category)} />
             <FontProperty
                 isCategoryDisable={props.isCategoryDisable}
-                data={props.data} category={props.category}
-                changeFontFamily={(event) => props.changeFontFamily(event)} />
+                data={props.data}
+                category={props.category}
+                fontFamily={props.fontFamily}
+                changeFontFamily={(event) => props.changeFontFamily(event)}
+                changeFontVariant={(event) => props.changeFontVariant(event)} />
             <FontSize changeFontSize={(event) => props.changeFontSize(event)} />
             <FontColor changeColor={(event) => props.changeColor(event)} />
         </div>

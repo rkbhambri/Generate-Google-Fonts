@@ -12,7 +12,16 @@ class Layout extends Component {
         category: 'All',
         fontSize: '20px',
         fontColor: '#000',
-        fontFamily: ''
+        fontFamily: '',
+        fontVariant: ''
+    };
+
+    static getDerivedStateFromProps = (nextProps, nextState) => {
+        if (nextState.fontFamily.length === 0) {
+            return { isCategoryDisable: true }
+        } else {
+            return { isCategoryDisable: false }
+        }
     };
 
     componentDidMount() {
@@ -25,27 +34,7 @@ class Layout extends Component {
     };
 
     selectCategory = (category) => {
-        let isCategoryDisable = this.state.isCategoryDisable;
-        if (category === 'All') {
-            isCategoryDisable = true;
-        }
-        if (category === 'Sans-Serif') {
-            isCategoryDisable = false;
-        }
-        if (category === 'Serif') {
-            isCategoryDisable = false;
-        }
-        if (category === 'Display') {
-            isCategoryDisable = false;
-        }
-        if (category === 'Handwriting') {
-            isCategoryDisable = false;
-        }
-        if (category === 'Monospace') {
-            isCategoryDisable = false;
-        }
         this.setState({
-            isCategoryDisable,
             category
         });
     };
@@ -71,6 +60,13 @@ class Layout extends Component {
         });
     };
 
+    changeFontVariant = (event) => {
+        this.setState({
+            ...this.state,
+            fontVariant: event.target.value
+        });
+    };
+
     render() {
         return (
             <div className="layout col-md-10 offset-1 mt-4">
@@ -84,9 +80,11 @@ class Layout extends Component {
                         isCategoryDisable={this.state.isCategoryDisable}
                         data={this.state.data}
                         category={this.state.category}
+                        fontFamily={this.state.fontFamily}
                         changeFontSize={(event) => this.changeFontSize(event)}
                         changeColor={(event) => this.changeColor(event)}
                         changeFontFamily={(event) => this.changeFontFamily(event)}
+                        changeFontVariant={(event) => this.changeFontVariant(event)}
                     />
                 </div>
             </div>

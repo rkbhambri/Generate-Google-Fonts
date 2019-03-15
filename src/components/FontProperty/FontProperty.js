@@ -8,10 +8,17 @@ const FontProperty = (props) => {
             <p className="mt-1">PROPERTY</p>
             <FontFamily
                 label="Select Font Family"
-                data={props.data} category={props.category}
+                data={props.data}
+                category={props.category}
                 changeFontFamily={(event) => props.changeFontFamily(event)}
             />
-            <FontVariant label="Select Font Variant" isCategoryDisable={props.isCategoryDisable} data={props.data} category={props.category} />
+            <FontVariant
+                label="Select Font Variant"
+                isCategoryDisable={props.isCategoryDisable}
+                data={props.data}
+                category={props.category}
+                fontFamily={props.fontFamily}
+                changeFontVariant={(event) => props.changeFontVariant(event)} />
         </div>
     );
 };

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/rkbhambri/Generate-Google-Fonts/precache-manifest.0be3ed2886b594f96e56cf2f5b3ebba9.js"
+  "/Generate-Google-Fonts/precache-manifest.5ac6dce72f738c3da38539f6679ee970.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/rkbhambri/Generate-Google-Fonts/index.html", {
+workbox.routing.registerNavigationRoute("/Generate-Google-Fonts/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
